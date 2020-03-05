@@ -1,0 +1,58 @@
+.navbar{
+    background-color:#009999;
+}
+#btmFooter {
+    align-self: flex-end;
+  }
+
+  #footer {
+    position: absolute;
+    height: 50px;
+    background-color:#009999;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+mat-drawer-container{
+ height: 100%;
+width: 100%;
+}
+.example-sidenav-content{
+    width:auto;
+}
+/*
+mat-sidenav, mat-sidenav-content{
+    padding:16px;
+}*/
+
+mat-drawer{
+    background-color:#004d4d;
+    color: white;
+
+}
+
+.menu-button {
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+  }
+  .menu-button.rotated {
+    transform: rotate(180deg);
+  }
+  .submenu {
+    overflow-y: hidden;
+    transition: 300ms ease-in-out;
+    height: 0;
+  }
+  .submenu.expanded {
+    height: auto;
+  }
+  .white-icon {
+    color:white;
+}
+h4{
+    color:white;
+}
