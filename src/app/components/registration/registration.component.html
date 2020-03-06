@@ -1,1 +1,133 @@
-<p>registration works!</p>
+<body>
+    
+<div class="login-form" >
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()"class="form-horizontal">
+        <h2 class="text-center">Registration</h2>  
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 ">First Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 ">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="Last Name" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3">Email* </label>
+            <div class="col-sm-9">
+                <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 ">Password*</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 ">Confirm Password*</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mobileNumber" class="col-sm-3 ">Mobile number </label>
+            <div class="col-sm-9">
+                <input type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">
+                <span class="help-block">Your phone number won't be disclosed anywhere </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3">Gender</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="femaleRadio" value="Female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="maleRadio" value="Male">Male
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <label for="password" class="col-sm-3 ">Hobbies</label>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Singing</label>
+                    </div> 
+                    <div class="col-sm-4">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Dancing</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Reading</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Travelling</label>
+                    </div> 
+                    <div class="col-sm-4">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Writing</label>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="state" class="col-sm-3 ">State*</label>
+            <div class="col-sm-9">
+                <select id="inputState" class="form-control">
+                    <option> Choose...</option>
+                      <option>Uzbekistan</option>
+                      <option>Russia</option>
+                      <option selected="">United States</option>
+                      <option>India</option>
+                      <option>Afganistan</option>
+                  </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-sm-3 ">City*</label>
+            <div class="col-sm-9">
+                <select id="inputState" class="form-control">
+                    <option> Choose...</option>
+                      <option>Uzbekistan</option>
+                      <option>Russia</option>
+                      <option selected="">United States</option>
+                      <option>India</option>
+                      <option>Afganistan</option>
+                  </select>
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="mobileNumber" class="col-sm-3 ">Profile Photo</label>
+            <div class="col-sm-9">
+                <img class="avatar" [src]="defaultImage">
+                <div  *ngIf="imageURL && imageURL !== ''">
+                    
+                    <img class="avatar" [src]="imageURL ? imageURL : defaultImage" [alt]="uploadForm.value.name">
+                  </div>
+                
+                    <input type="file" accept="image/*" (change)="showPreview($event)" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>    
+        <p class="text-center"><a href="#">Not a memeber? Sign up</a></p>    
+    </form>
+</div>
+</body>

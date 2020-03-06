@@ -1,3 +1,6 @@
+body{
+height:100%;  
+}
 .navbar{
     background-color:#009999;
     margin-bottom: 0px;
@@ -7,14 +10,16 @@
   }
 
   #footer {
-    position: absolute;
+   
     height: 50px;
-    background-color:#009999;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
+    background-color: #009999;
     text-align: center;
+    padding-top: 20px;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    width: 100%;
 }
 
 mat-drawer-container{

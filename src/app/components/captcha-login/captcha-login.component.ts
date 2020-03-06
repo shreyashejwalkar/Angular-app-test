@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./captcha-login.component.css']
 })
 export class CaptchaLoginComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
+  public resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);}
 
 }

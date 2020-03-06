@@ -11,7 +11,7 @@ const routes: Routes = [
 {path:'', redirectTo:'/home', pathMatch:'full'},
 {path:'home', component: HomeComponent},
 {path:'simple-login', component: SimpleLoginComponent},
-{path:'captcha=login', component: CaptchaLoginComponent},
+{path:'captcha-login', component: CaptchaLoginComponent},
 {path:'registration', component: RegistrationComponent},
 {path:"**", component: PageNotFoundComponent}
 ];
