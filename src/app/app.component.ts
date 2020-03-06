@@ -9,4 +9,5 @@ export class AppComponent {
   title = 'Angular-app';
   isExpanded = false;
   isSubmenuExpanded = false;
+  isShowing = false;
 }

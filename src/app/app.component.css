@@ -1,5 +1,6 @@
 .navbar{
     background-color:#009999;
+    margin-bottom: 0px;
 }
 #btmFooter {
     align-self: flex-end;
@@ -14,7 +15,6 @@
     right: 0px;
     margin-bottom: 0px;
     text-align: center;
-    padding-top: 25px;
 }
 
 mat-drawer-container{
@@ -24,10 +24,10 @@ width: 100%;
 .example-sidenav-content{
     width:auto;
 }
-/*
-mat-sidenav, mat-sidenav-content{
-    padding:16px;
-}*/
+
+mat-nav-list{
+    border:1px;
+}
 
 mat-drawer{
     background-color:#004d4d;
@@ -55,4 +55,12 @@ mat-drawer{
 }
 h4{
     color:white;
+}
+.toggle{
+  background-color: #004d4d;
+  width: 100%;
+  
+  position: absolute;
+  bottom: 0;
+  height: 50px;
 }

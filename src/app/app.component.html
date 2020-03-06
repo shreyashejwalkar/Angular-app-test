@@ -3,11 +3,11 @@
 </mat-toolbar>
 
   <mat-drawer-container class="example-container mat-typography" autosize>
-    <mat-drawer #drawer mode="side" disableClose="true" opened="true">
-      <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn" style="margin: 10px;">
-        <mat-icon aria-label="Menu">menu</mat-icon>
+    <mat-drawer #drawer mode="side" disableClose="true" opened="true" >
+      <button (click)="isExpanded = !isExpanded" class="toggle" >
+        <mat-icon mat-list-icon class="white-icon">keyboard_arrow_right</mat-icon>
       </button>
-  
+     
       <mat-nav-list>
         <mat-list-item>
           <mat-icon mat-list-icon class="white-icon" >home</mat-icon>
@@ -19,21 +19,22 @@
           <mat-list-item >
               <h4 mat-line *ngIf="isExpanded">Login
                 <button mat-button mat-icon-button (click)="isSubmenuExpanded = !isSubmenuExpanded">
-                   <mat-icon class="white-icon"  class="menu-button" [ngClass]="{'rotated' : isSubmenuExpanded}">expand_more</mat-icon>
+                   <mat-icon class="white-icon"  class="menu-button" [ngClass]="{'rotated' : isSubmenuExpanded}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
            </button></h4> 
           </mat-list-item >
         </mat-list-item>
-       <!-- <div class="submenu" [ngClass]="{'expanded' : isSubmenuExpanded}">
-        <!-- <div *ngIf="isSubmenuExpanded?  : [style.display]="none"">
+        <div class="submenu" [ngClass]="{'expanded' : isSubmenuExpanded}" *ngIf="isShowing || isExpanded">
+       
             <mat-list-item><h4 routerLink="/simple-login" routerLinkActive="active">Simple Login</h4></mat-list-item>
             <mat-list-item><h4 routerLink="/captcha=login" routerLinkActive="active">Login with Google Captcha</h4></mat-list-item>
-         </div>-->
+         
+         </div>
         <mat-list-item>
           <mat-icon mat-list-icon class="white-icon" >create</mat-icon>
           <h4 mat-line *ngIf="isExpanded" routerLink="/registration" routerLinkActive="active">Registration</h4>
         </mat-list-item>
       </mat-nav-list>
-       
+    
     </mat-drawer>
   
     <div class="example-sidenav-content">
