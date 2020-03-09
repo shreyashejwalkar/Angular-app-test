@@ -29,11 +29,11 @@ export class RegistrationComponent implements OnInit
   ngOnInit()
   {
     this.uploadForm = this.fb.group({
-      firstName : ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10), Validators.pattern('^[a-zA-Z]*$')]],
-      lastName : ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10),Validators.pattern('^[a-zA-Z]*$')]],
+      firstName : ['', [Validators.required,Validators.pattern('^([a-zA-Z]{3,10})$')]],
+      lastName : ['', [Validators.required,Validators.pattern('^([a-zA-Z]{3,10})$')]],
       email : ['', [Validators.required, Validators.pattern('^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$')]],
       userName : ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9-_\.]{5,10}$')]],
-      password: ['', [Validators.required,Validators.pattern('(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$')]],
+      password: ['', [Validators.required,Validators.pattern('(?=.*\[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,10}')]],
       confirmPassword: ['',[Validators.required]],
       phoneNumber:['', [Validators.required,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       stateName:['', [Validators.required]],
@@ -43,54 +43,58 @@ export class RegistrationComponent implements OnInit
     },{validator : PasswordValidator});
     
   }
-     public handleError = ( errorName: string) => {
-      return this.uploadForm.get('state').hasError(errorName);
-    }
 
-    changeCountry(count) {
+    changeCountry(count) 
+    {
       this.cities = this.stateList.find(con => con.name == count).cities;
     }
+    
+    property(propertyName : string)
+    {
+      return this.uploadForm.get(propertyName);
+    }
+
     get userName()
     {
-      return this.uploadForm.get('userName');
+      return this.property('userName');
     }
 
      get firstName()
      {
-       return this.uploadForm.get('firstName');
+       return this.property('firstName');
      }
 
      get lastName()
      {
-       return this.uploadForm.get('lastName');
+       return this.property('lastName');
      }
 
      get email()
      {
-       return this.uploadForm.get('email');
+       return this.property('email');
      }
 
      get password()
      {
-       return this.uploadForm.get('password');
+       return this.property('password');
      }
 
      get confirmPassword()
      {
-       return this.uploadForm.get('confirmPassword');
+       return this.property('confirmPassword');
      }
      get phoneNumber()
      {
-       return this.uploadForm.get('phoneNumber');
+       return this.property('phoneNumber');
      }
 
     get cityName() 
     {
-      return this.uploadForm.get('cityName');
+      return this.property('cityName');
     }
     get stateName() 
     {
-      return this.uploadForm.get('stateName');
+      return this.property('stateName');
     }
 
     // Image Preview
@@ -117,7 +121,8 @@ export class RegistrationComponent implements OnInit
       } 
       else
       {
-        alert(JSON.stringify(this.uploadForm.value))
+        alert('Form submitted - fields passed validation')
       }
+      this.uploadForm.reset();
     }
 }

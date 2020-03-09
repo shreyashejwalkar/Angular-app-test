@@ -19,13 +19,20 @@ export class SimpleLoginComponent implements OnInit
     });
     
   }
+  
+  property(propertyName : string)
+  {
+    return this.loginForm.get(propertyName);
+  }
+
   get userName()
   {
-    return this.loginForm.get('userName');
+    return this.property('userName');
   }
+
   get password()
   {
-    return this.loginForm.get('password');
+    return this.property('password');
   }
 
   onSubmit()

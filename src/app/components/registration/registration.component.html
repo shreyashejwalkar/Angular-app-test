@@ -8,21 +8,17 @@
                 <input [class.is-invalid]="firstName.invalid && firstName.touched " formControlName="firstName" type="text" id="firstName" placeholder="First Name" class="form-control" >
                 <div *ngIf="firstName.invalid && firstName.touched">
                     <small *ngIf="firstName.errors?.required" class="text-danger" >First Name is required</small>
-                    <small *ngIf="firstName.errors?.minlength" class="text-danger" >First Name must be at least 3 charachters</small>
-                    <small *ngIf="firstName.errors?.maxlength" class="text-danger" >First Name must be at most 10 charachters</small>
-                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >First name contains only alphabets</small>
+                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >First name contains only alphabets and (3-10) chars</small>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="firstName" class="col-sm-3 ">Last Name<span class="required">*</span></label>
+            <label for="lastName" class="col-sm-3 ">Last Name<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input [class.is-invalid]="lastName.invalid && lastName.touched " formControlName="lastName"  type="text" id="firstName" placeholder="Last Name" class="form-control" >
+                <input [class.is-invalid]="lastName.invalid && lastName.touched " formControlName="lastName"  type="text" id="lastName" placeholder="Last Name" class="form-control" >
                 <div *ngIf="lastName.invalid && lastName.touched">
                     <small *ngIf="lastName.errors?.required" class="text-danger" >Last Name is required</small>
-                    <small *ngIf="firstName.errors?.minlength" class="text-danger" >Last Name must be at least 3 charachters</small>
-                    <small *ngIf="firstName.errors?.maxlength" class="text-danger" >Last Name must be at most 10 charachters</small>
-                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >Last name contains only alphabets</small>
+                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >Last name contains only alphabets and (3-10) chars</small>
                 </div>
             </div>
         </div>
@@ -37,12 +33,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label  for="email" class="col-sm-3">UserName<span class="required">*</span></label>
+            <label  for="userName" class="col-sm-3">UserName<span class="required">*</span></label>
             <div class="col-sm-9">
                 <input [class.is-invalid]="userName.invalid && userName.touched " formControlName="userName"  type="text" class="form-control" placeholder="Username" required="required">
                 <div *ngIf="userName.invalid && userName.touched">
                     <small *ngIf="userName.errors?.required" class="text-danger" >User Name is required</small>
-                    <small *ngIf="userName.errors?.pattern" class="text-danger" >User Name must have(char, char & number, min(5-10) chars)</small>
+                    <small *ngIf="userName.errors?.pattern" class="text-danger" >User Name must have(char, char & number and (5-10) chars)</small>
                 </div>
             </div>
         </div>
@@ -53,14 +49,14 @@
                 <input [class.is-invalid]="password.invalid && password.touched " formControlName="password" type="password" id="password" placeholder="Password" class="form-control">
                 <div *ngIf="password.invalid && password.touched">
                     <small *ngIf="password.errors?.required" class="text-danger" >Password is required</small>
-                    <small *ngIf="password.errors?.pattern" class="text-danger" >Password must have (upercase,lowercase,number/special character and min 8 chars)</small>
+                    <small *ngIf="password.errors?.pattern" class="text-danger" >Password must have (at least one number, one lowercase, one uppercase and (5-10) chars)</small>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 ">Confirm Password<span class="required">*</span></label>
+            <label for="confirmpassword" class="col-sm-3 ">Confirm Password<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input [class.is-invalid]="uploadForm.errors?.misMatch" formControlName="confirmPassword" type="password" id="password" placeholder="Password" class="form-control">
+                <input [class.is-invalid]="uploadForm.errors?.misMatch" formControlName="confirmPassword" type="password" id="confirmpassword" placeholder="Confirm Password" class="form-control">
                 <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
                     <small *ngIf="confirmPassword.errors?.required" class="text-danger" >Confirm the password</small>
                 </div>
@@ -72,8 +68,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched " formControlName="phoneNumber" type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">             
                 <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
-                    <small *ngIf="phoneNumber.errors?.required" class="text-danger" >Phone Number is required</small>
-                    <small *ngIf="phoneNumber.errors?.pattern" class="text-danger" >Phone Number is not in correct format</small>
+                    <small *ngIf="phoneNumber.errors?.required" class="text-danger" >Mobile Number is required</small>
+                    <small *ngIf="phoneNumber.errors?.pattern" class="text-danger" >Mobile Number is not in correct format</small>
                 </div>
             </div>
         </div>
@@ -93,9 +89,9 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- /.form-group -->
+        </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 ">Hobbies</label>
+            <label for="hobbies" class="col-sm-3 ">Hobbies</label>
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-4">
@@ -139,7 +135,7 @@
             </div>
         </div> 
         <div class="form-group">
-            <label for="mobileNumber" class="col-sm-3 ">Profile Photo</label>
+            <label for="profilePhoto" class="col-sm-3 ">Profile Photo</label>
             <div class="col-sm-9">
                 <div  *ngIf="imageURL && imageURL !== ''">
                     <img class="avatar" [src]="imageURL ? imageURL : defaultImage" [alt]="uploadForm.value.name">
@@ -149,7 +145,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-9">
-                <button type="submit"  class="btn btn-primary btn-block">Register</button>
+                <button type="submit" [disabled]="!uploadForm.valid" class="btn btn-primary btn-block">Register</button>
             </div>
            
         </div>
