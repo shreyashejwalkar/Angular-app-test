@@ -36,3 +36,8 @@
 {
     padding-bottom: 10px;
 }
+.errormsg
+{
+    color:red;
+    border-color:1px solid red;
+}

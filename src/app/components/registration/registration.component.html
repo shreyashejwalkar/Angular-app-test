@@ -7,8 +7,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="firstName.invalid && firstName.touched " formControlName="firstName" type="text" id="firstName" placeholder="First Name" class="form-control" >
                 <div *ngIf="firstName.invalid && firstName.touched">
-                    <small *ngIf="firstName.errors?.required" class="text-danger" >First Name is required</small>
-                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >First name contains only alphabets and (3-10) chars</small>
+                    <small *ngIf="firstName.errors?.required" class="errormsg" >First Name is required</small>
+                    <small *ngIf="firstName.errors?.pattern" class="errormsg" >First name contains only alphabets and (3-10) chars</small>
                 </div>
             </div>
         </div>
@@ -17,8 +17,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="lastName.invalid && lastName.touched " formControlName="lastName"  type="text" id="lastName" placeholder="Last Name" class="form-control" >
                 <div *ngIf="lastName.invalid && lastName.touched">
-                    <small *ngIf="lastName.errors?.required" class="text-danger" >Last Name is required</small>
-                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >Last name contains only alphabets and (3-10) chars</small>
+                    <small *ngIf="lastName.errors?.required" class="errormsg" >Last Name is required</small>
+                    <small *ngIf="lastName.errors?.pattern" class="errormsg" >Last name contains only alphabets and (3-10) chars</small>
                 </div>
             </div>
         </div>
@@ -27,8 +27,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="email.invalid && email.touched " formControlName="email" type="email" id="email" placeholder="Email" class="form-control" name= "email">
                 <div *ngIf="email.invalid && email.touched">
-                    <small *ngIf="email.errors?.required" class="text-danger" >Email is required</small>
-                    <small *ngIf="email.errors?.pattern" class="text-danger" >Invalid email format</small>
+                    <small *ngIf="email.errors?.required" class="errormsg" >Email is required</small>
+                    <small *ngIf="email.errors?.pattern" class="errormsg" >Invalid email format</small>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="userName.invalid && userName.touched " formControlName="userName"  type="text" class="form-control" placeholder="Username" required="required">
                 <div *ngIf="userName.invalid && userName.touched">
-                    <small *ngIf="userName.errors?.required" class="text-danger" >User Name is required</small>
-                    <small *ngIf="userName.errors?.pattern" class="text-danger" >User Name must have(char, char & number and (5-10) chars)</small>
+                    <small *ngIf="userName.errors?.required" class="errormsg">User Name is required</small>
+                    <small *ngIf="userName.errors?.pattern" class="errormsg" >User Name must have(char, char & number and (5-10) chars)</small>
                 </div>
             </div>
         </div>
@@ -48,8 +48,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="password.invalid && password.touched " formControlName="password" type="password" id="password" placeholder="Password" class="form-control">
                 <div *ngIf="password.invalid && password.touched">
-                    <small *ngIf="password.errors?.required" class="text-danger" >Password is required</small>
-                    <small *ngIf="password.errors?.pattern" class="text-danger" >Password must have (at least one number, one lowercase, one uppercase and (5-10) chars)</small>
+                    <small *ngIf="password.errors?.required" class="errormsg" >Password is required</small>
+                    <small *ngIf="password.errors?.pattern" class="errormsg" >Password must have (at least one number, one lowercase, one uppercase and (5-10) chars)</small>
                 </div>
             </div>
         </div>
@@ -58,9 +58,9 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="uploadForm.errors?.misMatch" formControlName="confirmPassword" type="password" id="confirmpassword" placeholder="Confirm Password" class="form-control">
                 <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
-                    <small *ngIf="confirmPassword.errors?.required" class="text-danger" >Confirm the password</small>
+                    <small *ngIf="confirmPassword.errors?.required" class="errormsg" >Confirm the password</small>
                 </div>
-                <small *ngIf="uploadForm.errors?.misMatch" class="text-danger" >Passwords do not match</small>
+                <small *ngIf="uploadForm.errors?.misMatch" class="errormsg" >Passwords do not match</small>
             </div>
         </div>
         <div class="form-group">
@@ -68,8 +68,8 @@
             <div class="col-sm-9">
                 <input [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched " formControlName="phoneNumber" type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">             
                 <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
-                    <small *ngIf="phoneNumber.errors?.required" class="text-danger" >Mobile Number is required</small>
-                    <small *ngIf="phoneNumber.errors?.pattern" class="text-danger" >Mobile Number is not in correct format</small>
+                    <small *ngIf="phoneNumber.errors?.required" class="errormsg" >Mobile Number is required</small>
+                    <small *ngIf="phoneNumber.errors?.pattern" class="errormsg" >Mobile Number is not in correct format</small>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
                     <option value="">-- SELECT STATE --</option>
                     <option *ngFor ="let count of stateList">{{count.name}} </option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="isSubmitted && stateName.errors?.required" class="text-danger" >
+                  <div class="invalid-feedback" *ngIf="isSubmitted && stateName.errors?.required" class="errormsg" >
                    Please select your state
                 </div>
             </div>
@@ -147,7 +147,6 @@
             <div class="col-sm-9">
                 <button type="submit" [disabled]="!uploadForm.valid" class="btn btn-primary btn-block">Register</button>
             </div>
-           
         </div>
         <p class="text-center"><a routerLink="/simple-login" routerLinkActive="active">I am already an user</a></p>    
     </form>

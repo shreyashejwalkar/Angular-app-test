@@ -38,6 +38,12 @@ body{
     height: 100px;
     margin-bottom: 20px;
   }
-  .required{
-      color: red;
-  }
+  .errormsg
+{
+    color:red;
+    border-color:1px solid red;
+}
+.required
+{
+    color:red;
+}

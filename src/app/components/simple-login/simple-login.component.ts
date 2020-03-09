@@ -17,7 +17,6 @@ export class SimpleLoginComponent implements OnInit
       userName : ['', Validators.required],
       password: ['', Validators.required],
     });
-    
   }
   
   property(propertyName : string)
@@ -38,6 +37,5 @@ export class SimpleLoginComponent implements OnInit
   onSubmit()
   {
     console.log(this.loginForm.value);
-  
   }
 }

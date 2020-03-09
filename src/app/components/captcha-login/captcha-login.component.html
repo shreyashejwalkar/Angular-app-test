@@ -11,7 +11,7 @@
         <div class="form-group">
             <input [class.is-invalid]="password.invalid && password.touched " formControlName="password"  type="password" class="form-control" placeholder="Password" required="required">
             <div *ngIf="password.invalid && password.touched">
-                <small *ngIf="password.errors?.required" class="text-danger" >Password is required</small>
+                <small *ngIf="password.errors?.required" class="errormsg" >Password is required</small>
             </div>
         </div>
         <div class="clearfix">
