@@ -3,7 +3,7 @@ body{
     height:100%;  
     }
 .login-form {
-    width: 500px;
+    width: 800px;
     margin: 50px auto;
     border: 1px solid #DEDEDE;
 }
@@ -24,6 +24,9 @@ body{
 .btn {        
     font-size: 15px;
     font-weight: bold;
+    width:20%;
+    float: right;
+    margin-right: 237px;
 }
 .clearfix
 {
@@ -34,4 +37,7 @@ body{
     width: 100px;
     height: 100px;
     margin-bottom: 20px;
+  }
+  .required{
+      color: red;
   }

@@ -1,16 +1,21 @@
-body{
-height:100%;  
+body
+{
+  height:100%;  
 }
-.navbar{
+
+.navbar
+{
     background-color:#009999;
     margin-bottom: 0px;
 }
-#btmFooter {
-    align-self: flex-end;
-  }
 
-  #footer {
-   
+#btmFooter 
+{
+    align-self: flex-end;
+}
+
+#footer 
+{
     height: 50px;
     background-color: #009999;
     text-align: center;
@@ -22,49 +27,69 @@ height:100%;
     width: 100%;
 }
 
-mat-drawer-container{
- height: 100%;
-width: 100%;
+mat-drawer-container
+{
+  height: 100%;
+  width: 100%;
 }
-.example-sidenav-content{
+
+.example-sidenav-content
+{
     width:auto;
 }
 
-mat-nav-list{
+mat-nav-list
+{
     border:1px;
 }
 
-mat-drawer{
+mat-drawer
+{
     background-color:#004d4d;
     color: white;
-
+}
+.drawer
+{
+  height: 91.5%;
 }
 
-.menu-button {
+.menu-button 
+{
     transition: 300ms ease-in-out;
     transform: rotate(0deg);
-  }
-  .menu-button.rotated {
+}
+
+.menu-button.rotated 
+{
     transform: rotate(180deg);
-  }
-  .submenu {
+}
+
+.submenu 
+{
     overflow-y: hidden;
     transition: 300ms ease-in-out;
     height: 0;
-  }
-  .submenu.expanded {
+}
+
+.submenu.expanded 
+{
     height: auto;
-  }
-  .white-icon {
+}
+
+.white-icon 
+{
     color:white;
 }
-h4{
+
+h4
+{
     color:white;
 }
-.toggle{
+
+.toggle
+{
   background-color: #004d4d;
   width: 100%;
-  
   position: absolute;
   bottom: 0;
   height: 50px;

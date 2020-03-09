@@ -1,21 +1,20 @@
 <body>
-<mat-toolbar class="navbar">
-  <div>Aress</div>
-</mat-toolbar>
-
-  <mat-drawer-container class="example-container mat-typography" autosize>
+  <!--Navbar-->
+  <mat-toolbar class="navbar">
+    <div>Aress</div>
+  </mat-toolbar>
+  <!--Side Navbar-->
+  <mat-drawer-container class="example-container mat-typography" autosize class="drawer">
     <mat-drawer #drawer mode="side" disableClose="true" opened="true" >
       <button (click)="isExpanded = !isExpanded" class="toggle" >
         <mat-icon mat-list-icon class="white-icon" *ngIf="!isExpanded">keyboard_arrow_right</mat-icon>
         <mat-icon mat-list-icon class="white-icon" *ngIf="isExpanded">keyboard_arrow_left</mat-icon>
       </button>
-     
       <mat-nav-list>
         <mat-list-item>
           <mat-icon mat-list-icon routerLink="/home" routerLinkActive="active" class="white-icon" >home</mat-icon>
           <h4 mat-line *ngIf="isExpanded" routerLink="/home" routerLinkActive="active">Home</h4>
         </mat-list-item>
-
         <mat-list-item >
           <mat-icon mat-list-icon class="white-icon"  >input</mat-icon>
           <mat-list-item >
@@ -26,34 +25,24 @@
           </mat-list-item >
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : isSubmenuExpanded}" *ngIf="isShowing || isExpanded">
-       
             <mat-list-item><h4 routerLink="/simple-login" routerLinkActive="active">Simple Login</h4></mat-list-item>
             <mat-list-item><h4 routerLink="/captcha-login" routerLinkActive="active">Login with Google Captcha</h4></mat-list-item>
-         
          </div>
         <mat-list-item>
           <mat-icon mat-list-icon routerLink="/registration" routerLinkActive="active" class="white-icon" >create</mat-icon>
           <h4 mat-line *ngIf="isExpanded" routerLink="/registration" routerLinkActive="active">Registration</h4>
         </mat-list-item>
       </mat-nav-list>
-    
     </mat-drawer>
-  
+    <!--Content-->
     <div class="example-sidenav-content">
       <router-outlet></router-outlet>
+      <!--Footer-->
       <footer  id="footer">
           <small> &copy; 2020 - Aress Software & Education Technologies (P)(P) Ltd. All rights reserved.</small>
-       
       </footer>
     </div>
-    
-  
   </mat-drawer-container>
-  <!-- Footer -->
-
-  
- 
-<!-- Footer -->
   </body>
  
  

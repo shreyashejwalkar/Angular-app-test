@@ -1,43 +1,80 @@
 <body>
-    
 <div class="login-form" >
     <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()"class="form-horizontal">
         <h2 class="text-center">Registration</h2>  
         <div class="form-group">
-            <label for="firstName" class="col-sm-3 ">First Name</label>
+            <label for="firstName" class="col-sm-3 ">First Name<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                <input [class.is-invalid]="firstName.invalid && firstName.touched " formControlName="firstName" type="text" id="firstName" placeholder="First Name" class="form-control" >
+                <div *ngIf="firstName.invalid && firstName.touched">
+                    <small *ngIf="firstName.errors?.required" class="text-danger" >First Name is required</small>
+                    <small *ngIf="firstName.errors?.minlength" class="text-danger" >First Name must be at least 3 charachters</small>
+                    <small *ngIf="firstName.errors?.maxlength" class="text-danger" >First Name must be at most 10 charachters</small>
+                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >First name contains only alphabets</small>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="firstName" class="col-sm-3 ">Last Name</label>
+            <label for="firstName" class="col-sm-3 ">Last Name<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="text" id="firstName" placeholder="Last Name" class="form-control" autofocus>
+                <input [class.is-invalid]="lastName.invalid && lastName.touched " formControlName="lastName"  type="text" id="firstName" placeholder="Last Name" class="form-control" >
+                <div *ngIf="lastName.invalid && lastName.touched">
+                    <small *ngIf="lastName.errors?.required" class="text-danger" >Last Name is required</small>
+                    <small *ngIf="firstName.errors?.minlength" class="text-danger" >Last Name must be at least 3 charachters</small>
+                    <small *ngIf="firstName.errors?.maxlength" class="text-danger" >Last Name must be at most 10 charachters</small>
+                    <small *ngIf="firstName.errors?.pattern" class="text-danger" >Last name contains only alphabets</small>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="email" class="col-sm-3">Email* </label>
+            <label  for="email" class="col-sm-3">Email<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                <input [class.is-invalid]="email.invalid && email.touched " formControlName="email" type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                <div *ngIf="email.invalid && email.touched">
+                    <small *ngIf="email.errors?.required" class="text-danger" >Email is required</small>
+                    <small *ngIf="email.errors?.pattern" class="text-danger" >Invalid email format</small>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 ">Password*</label>
+            <label  for="email" class="col-sm-3">UserName<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
+                <input [class.is-invalid]="userName.invalid && userName.touched " formControlName="userName"  type="text" class="form-control" placeholder="Username" required="required">
+                <div *ngIf="userName.invalid && userName.touched">
+                    <small *ngIf="userName.errors?.required" class="text-danger" >User Name is required</small>
+                    <small *ngIf="userName.errors?.pattern" class="text-danger" >User Name must have(char, char & number, min(5-10) chars)</small>
+                </div>
+            </div>
+        </div>
+        <!--Cross field validation-->
+        <div class="form-group">
+            <label for="password" class="col-sm-3 ">Password<span class="required">*</span></label>
+            <div class="col-sm-9">
+                <input [class.is-invalid]="password.invalid && password.touched " formControlName="password" type="password" id="password" placeholder="Password" class="form-control">
+                <div *ngIf="password.invalid && password.touched">
+                    <small *ngIf="password.errors?.required" class="text-danger" >Password is required</small>
+                    <small *ngIf="password.errors?.pattern" class="text-danger" >Password must have (upercase,lowercase,number/special character and min 8 chars)</small>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 ">Confirm Password*</label>
+            <label for="password" class="col-sm-3 ">Confirm Password<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
+                <input [class.is-invalid]="uploadForm.errors?.misMatch" formControlName="confirmPassword" type="password" id="password" placeholder="Password" class="form-control">
+                <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                    <small *ngIf="confirmPassword.errors?.required" class="text-danger" >Confirm the password</small>
+                </div>
+                <small *ngIf="uploadForm.errors?.misMatch" class="text-danger" >Passwords do not match</small>
             </div>
         </div>
         <div class="form-group">
-            <label for="mobileNumber" class="col-sm-3 ">Mobile number </label>
+            <label for="mobileNumber" class="col-sm-3 ">Mobile number<span class="required">*</span></label>
             <div class="col-sm-9">
-                <input type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">
-                <span class="help-block">Your phone number won't be disclosed anywhere </span>
+                <input [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched " formControlName="phoneNumber" type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">             
+                <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                    <small *ngIf="phoneNumber.errors?.required" class="text-danger" >Phone Number is required</small>
+                    <small *ngIf="phoneNumber.errors?.pattern" class="text-danger" >Phone Number is not in correct format</small>
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -78,56 +115,45 @@
                     <div class="col-sm-4">
                         <label class="pull-left checkbox-inline"><input type="checkbox"> Writing</label>
                     </div>
-                   
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="state" class="col-sm-3 ">State*</label>
+            <label for="state" class="col-sm-3 ">State<span class="required">*</span></label>
             <div class="col-sm-9">
-                <select id="inputState" class="form-control">
-                    <option> Choose...</option>
-                      <option>Uzbekistan</option>
-                      <option>Russia</option>
-                      <option selected="">United States</option>
-                      <option>India</option>
-                      <option>Afganistan</option>
+                <select (change)="changeCountry($event.target.value)" formControlName="stateName" id="inputState" class="form-control">
+                    <option value="">-- SELECT STATE --</option>
+                    <option *ngFor ="let count of stateList">{{count.name}} </option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="isSubmitted && stateName.errors?.required" class="text-danger" >
+                   Please select your state
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="city" class="col-sm-3 ">City*</label>
+            <label for="city" class="col-sm-3 ">City<span class="required">*</span></label>
             <div class="col-sm-9">
-                <select id="inputState" class="form-control">
-                    <option> Choose...</option>
-                      <option>Uzbekistan</option>
-                      <option>Russia</option>
-                      <option selected="">United States</option>
-                      <option>India</option>
-                      <option>Afganistan</option>
-                  </select>
+                <select formControlName="cityName" class="form-control">
+                    <option *ngFor ="let city of cities">{{city}} </option>
+                 </select>
             </div>
         </div> 
         <div class="form-group">
             <label for="mobileNumber" class="col-sm-3 ">Profile Photo</label>
             <div class="col-sm-9">
-                <img class="avatar" [src]="defaultImage">
                 <div  *ngIf="imageURL && imageURL !== ''">
-                    
                     <img class="avatar" [src]="imageURL ? imageURL : defaultImage" [alt]="uploadForm.value.name">
-                  </div>
-                
-                    <input type="file" accept="image/*" (change)="showPreview($event)" />
-                
+                </div>
+                <input  type="file" accept="image/*" (change)="showPreview($event)" />
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <div class="col-sm-9">
+                <button type="submit"  class="btn btn-primary btn-block">Register</button>
+            </div>
+           
         </div>
-        <div class="clearfix">
-            <a href="#" class="pull-right">Forgot Password?</a>
-        </div>    
-        <p class="text-center"><a href="#">Not a memeber? Sign up</a></p>    
+        <p class="text-center"><a routerLink="/simple-login" routerLinkActive="active">I am already an user</a></p>    
     </form>
 </div>
 </body>
